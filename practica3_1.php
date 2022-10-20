@@ -10,11 +10,12 @@
 <body>
     <?php
     $nTiradas = rand(5, 8);
+    $val1 = $val2 = $val3 = $val4 = $val5 = $val6 = 0;
+    $numMax = $numMin = 0;
     
-    //descomentar alt+shift+A
     for ($i=0; $i < $nTiradas; $i++) { 
         $var1 = rand(1, 6);
-        $val1 = $val2 = $val3 = $val4 = $val5 = $val6 = 0;
+
         switch ($var1) {
             case 1:
                 echo "<img src='dados/uno.png'>";
@@ -39,9 +40,15 @@
             case 6:
                 echo "<img src='dados/seis.png'>";
                 $val6++;
-                break;                
+                break;
         }
     }
+
+    echo "<br>";
+    echo "En ", $nTiradas, " tiradas el mayor valor ha sido ", /*aqui falta el n de la cara*/ "(",
+        max($val1, $val2, $val3, $val4, $val5, $val6), " tiradas) y",
+        " el menor valor ha sido ", /*aqui falta el numero de la cara*/ "(",
+        min($val1, $val2, $val3, $val4, $val5, $val6), " tiradas)";
     
     /* echo "<br>";
     echo "La tirada ha sido ", $res, " (", $var1, " + ", $var2, ")";
