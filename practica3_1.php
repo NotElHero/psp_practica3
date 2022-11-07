@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,13 +8,15 @@
     <meta name="author" content="Javier Villacorta">
     <title>Ejercicio1</title>
 </head>
+
 <body>
     <?php
     $nDados = rand(5, 8);
     $val1 = $val2 = $val3 = $val4 = $val5 = $val6 = 0;
     $numMax = $numMin = 0;
-    
-    for ($i=0; $i < $nDados; $i++) { 
+    $dadoMax = $dadoMin = 0;
+
+    for ($i = 0; $i < $nDados; $i++) {
         $var1 = rand(1, 6);
 
         switch ($var1) {
@@ -44,26 +47,54 @@
         }
     }
 
-    echo "<br>";
-    echo "En ", $nDados, " tiradas el mayor valor ha sido ", /*aqui falta el n de la cara*/ "(",
-        max($val1, $val2, $val3, $val4, $val5, $val6), " tiradas) y",
-        " el menor valor ha sido ", /*aqui falta el numero de la cara*/ "(",
-        min($val1, $val2, $val3, $val4, $val5, $val6), " tiradas)";
-    
-    /* echo "<br>";
-    echo "La tirada ha sido ", $res, " (", $var1, " + ", $var2, ")";
-    echo "<br>";
-    
-    if ($res >= 10) {
-        echo "buena";
-    } else if ($res >= 5 || $res < 10) {
-        echo "normal";
-    } else if ($res < 5) {
-        echo "mala";
+    switch (max($val1, $val2, $val3, $val4, $val5, $val6)) {
+        case $val6:
+            $dadoMax = 6;
+            break;
+        case $val5:
+            $dadoMax = 5;
+            break;
+        case $val4:
+            $dadoMax = 4;
+            break;
+        case $val3:
+            $dadoMax = 3;
+            break;
+        case $val2:
+            $dadoMax = 2;
+            break;
+        case $val1:
+            $dadoMax = 1;
+            break;
     }
-    if ($var1 == $var2) {
-        echo " y doble";
-    } */
+
+    switch (min($val1, $val2, $val3, $val4, $val5, $val6)) {
+        case $val1:
+            $dadoMin = 1;
+            break;
+        case $val2:
+            $dadoMin = 2;
+            break;
+        case $val3:
+            $dadoMin = 3;
+            break;
+        case $val4:
+            $dadoMin = 4;
+            break;
+        case $val5:
+            $dadoMin = 5;
+            break;
+        case $val6:
+            $dadoMin = 6;
+            break;
+    }
+
+    echo "<br>";
+    echo "En ", $nDados, " tiradas el mayor valor ha sido ", $dadoMax, " (",
+    max($val1, $val2, $val3, $val4, $val5, $val6), " tiradas) y",
+    " el menor valor ha sido ", $dadoMin, " (",
+    min($val1, $val2, $val3, $val4, $val5, $val6), " tiradas)";
     ?>
 </body>
+
 </html>
