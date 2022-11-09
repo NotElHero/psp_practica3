@@ -58,9 +58,8 @@
         }
 
         echo '<br>';
-        echo "<img src='baraja/'", $baraja; //aqui falta
+        echo "<img src='baraja/", strval($baraja), "/", rand(1, 12), ".jpg'>"; //aqui falta
     }
-
     ?>
 </body>
 </html>
