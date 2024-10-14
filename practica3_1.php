@@ -6,16 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Javier Villacorta">
-    <title>Ejercicio1</title>
+    <title>Ejercicio3_1</title>
 </head>
 
 <body>
     <?php
+    //En este ejercicio generamos un numero aleatorio de tiradas entre 5 y 8
     $nDados = rand(5, 8);
+    /*Se pueden igualar varias variables al mismo tiempo y al mismo valor. No significa que $val1, $val2, $val3, etc, valgan lo mismo,
+    sino que todas estan inicializadas a 0*/
     $val1 = $val2 = $val3 = $val4 = $val5 = $val6 = 0;
     $numMax = $numMin = 0;
     $dadoMax = $dadoMin = 0;
 
+    /*Este bucle for se encarga de contar cuantas veces se ha tirado cada dado, aumentando el valor de su
+    respectiva variable $val hasta que se acaben las tiradas de dados*/
     for ($i = 0; $i < $nDados; $i++) {
         $var1 = rand(1, 6);
 
@@ -47,6 +52,7 @@
         }
     }
 
+    //En este switch sabremos cual es el dado que mas veces ha salido, y dependiendo de ello $dadoMax tendra un valor en particular
     switch (max($val1, $val2, $val3, $val4, $val5, $val6)) {
         case $val6:
             $dadoMax = 6;
@@ -67,7 +73,7 @@
             $dadoMax = 1;
             break;
     }
-
+    //En este switch sabremos cual es el dado que no ha salido
     switch (min($val1, $val2, $val3, $val4, $val5, $val6)) {
         case $val1:
             $dadoMin = 1;
@@ -89,11 +95,12 @@
             break;
     }
 
+    //
     echo "<br>";
     echo "En ", $nDados, " tiradas el mayor valor ha sido ", $dadoMax, " (",
-    max($val1, $val2, $val3, $val4, $val5, $val6), " tiradas) y",
-    " el menor valor ha sido ", $dadoMin, " (",
-    min($val1, $val2, $val3, $val4, $val5, $val6), " tiradas)";
+    max($val1, $val2, $val3, $val4, $val5, $val6), " veces) y",
+    " el valor que no ha salido ninguna vez ha sido ", $dadoMin, " (",
+    min($val1, $val2, $val3, $val4, $val5, $val6), " veces)";
     ?>
 </body>
 
